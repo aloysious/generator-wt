@@ -67,6 +67,7 @@ WtGenerator.prototype.app = function app() {
   this.template('src/util/demo/demo.js', 'src/util/demo/demo.js');
   this.template('src/config.js', 'src/config.js');
 
+  this.copy('Gruntfile.js', 'Gruntfile.js');
   this.template('_package.json', 'package.json');
   //this.template('_bower.json', 'bower.json');
 };
