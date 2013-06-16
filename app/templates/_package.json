@@ -1,9 +1,9 @@
 {
   "name": "tb-wt",
-  "domain": "http://g.tbcdn.cn",
-  "group": "wt",
-  "project": "index",
-  "version": "1.0.0",
+  "domain": "<%= domainName%>",
+  "group": "<%= group%>",
+  "project": "<%= project%>",
+  "version": "<%= version%>",
   "devDependencies": {
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-jshint": "~0.6.0",

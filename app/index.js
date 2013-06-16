@@ -34,10 +34,21 @@ WtGenerator.prototype.askFor = function askFor() {
   console.log(welcome);
 
   var prompts = [{
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: 'Y/n',
-    warning: 'Yes: Enabling this will be totally awesome!'
+    name: 'domainName',
+    message: 'What is the assets domain name?',
+  	default: 'http://g.tbcdn.cn'
+  }, {
+  	name: 'group',
+	message: 'What is the group name?',
+  	default: 'wt'
+  }, {
+  	name: 'project',
+	message: 'What is the project name?',
+  	default: path.basename(process.cwd())
+  }, {
+  	name: 'version',
+	message: 'What is the default version you try to initialize your project?',
+	default: '1.0.0'
   }];
 
   this.prompt(prompts, function (err, props) {
@@ -45,7 +56,10 @@ WtGenerator.prototype.askFor = function askFor() {
       return this.emit('error', err);
     }
 
-    this.someOption = (/y/i).test(props.someOption);
+	this.domainName = props.domainName;
+	this.group = props.group;
+	this.project = props.project;
+	this.version = props.version;
 
     cb();
   }.bind(this));
