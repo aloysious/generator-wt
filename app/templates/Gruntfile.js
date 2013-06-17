@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 			}
 		},
 		
-		// Configuration to be run (and then tested).
+		// 页面解析，模块依赖关系抽取
 		wtbuild: {
 			compile: {
 				options: {
@@ -70,8 +70,7 @@ module.exports = function(grunt) {
 			}
 		},
 
-        // 打包后压缩文件
-        // 压缩文件和入口文件一一对应
+        // 压缩js文件
         uglify: {
 			dynamic_mappings: {
 				files: [
@@ -85,7 +84,23 @@ module.exports = function(grunt) {
 				]
 			}
         },
+        
+        // 压缩css文件
+        cssmin: {
+			dynamic_mappings: {
+				files: [
+					{
+						expand: true,
+						cwd: 'src/',
+						src: ['**/*.css'],
+						dest: 'build/',
+						ext: '-min.css'
+					}
+				]
+			}
+        },
 
+		// 复制文件
 		copy: {
 			main: {
 				files: [
@@ -102,11 +117,12 @@ module.exports = function(grunt) {
 
     // 使用到的任务，可以增加其他任务
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-wtbuild');
-    grunt.registerTask('buildmods', ['wtbuild:dep']);
-    grunt.registerTask('default', ['jshint', 'less', 'wtbuild:dep', 'wtbuild:compile', 'uglify', 'copy']);
-    grunt.registerTask('build', ['jshint', 'less', 'wtbuild:dep', 'wtbuild:compile', 'uglify', 'copy']);
+    grunt.registerTask('buildmod', ['wtbuild:dep']);
+    grunt.registerTask('default', ['jshint', 'less', 'wtbuild:dep', 'wtbuild:compile', 'uglify', 'cssmin', 'copy']);
+    grunt.registerTask('build', ['jshint', 'less', 'wtbuild:dep', 'wtbuild:compile', 'uglify', 'cssmin', 'copy']);
 };
