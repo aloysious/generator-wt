@@ -73,10 +73,10 @@ function GlobalInit(){
 				src=script.src;
 			
 			if(/\?\?/ig.test(src)){
-				var a = src.match(/(,[^,]+)global\.js|,global\.js|\?[^,?]+global\.js|global\.js/);
+				var a = src.match(/(,[^,]+)config\.js|,config\.js|\?[^,?]+config\.js|config\.js/);
 				var uri = src.replace(/\?\?.+$/ig,'');
 				var p = a[0]? a[0].replace(/[?,]/ig,''):'';
-				if(p === 'global.js'){
+				if(p === 'config.js'){
 					p = '';
 				}
 				return uri + p.replace(/\/[^\/]+$/i,'/').replace(/\?.+/i,'');
