@@ -68,9 +68,13 @@ WtGenerator.prototype.askFor = function askFor() {
 WtGenerator.prototype.app = function app() {
   this.mkdir('src');
   this.mkdir('src/lib');
+  this.mkdir('src/mock');
   this.mkdir('src/page');
   this.mkdir('src/widget');
   this.mkdir('src/widget/demo');
+  this.mkdir('src/widget/tb-assets');
+  this.mkdir('src/widget/tb-header');
+  this.mkdir('src/widget/tb-footer');
   this.mkdir('src/util');
   this.mkdir('src/util/demo');
 
@@ -78,7 +82,11 @@ WtGenerator.prototype.app = function app() {
   this.template('src/widget/demo/demo.js', 'src/widget/demo/demo.js');
   this.template('src/widget/demo/demo.less', 'src/widget/demo/demo.less');
   this.template('src/widget/demo/demo.html', 'src/widget/demo/demo.html');
+  this.template('src/widget/tb-assets/tb-assets.html', 'src/widget/tb-assets/tb-assets.html');
+  this.template('src/widget/tb-header/tb-header.html', 'src/widget/tb-header/tb-header.html');
+  this.template('src/widget/tb-footer/tb-footer.html', 'src/widget/tb-footer/tb-footer.html');
   this.template('src/util/demo/demo.js', 'src/util/demo/demo.js');
+  this.template('src/mock/demoData.json', 'src/mock/demoData.json');
   this.template('src/config.js', 'src/config.js');
 
   this.copy('Gruntfile.js', 'Gruntfile.js');

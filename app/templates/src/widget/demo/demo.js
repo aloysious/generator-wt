@@ -3,7 +3,7 @@
  *               请根据实际需要返回单例或函数对象
  *
  **/
-KISSY.add(function(S, NODE){
+KISSY.add('widget/demo/demo', function(S, NODE){
 
 	"use strict";
 
