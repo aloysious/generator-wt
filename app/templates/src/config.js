@@ -31,7 +31,7 @@ function GlobalInit(){
 			var self = this;
 			KISSY.config({
 				combine:self.isCombo(),
-				charset: 'gbk',
+				charset: 'utf-8',
 				packages:[{
 					combine:self.isCombo(),
 					debug: true,

@@ -90,6 +90,7 @@ WtGenerator.prototype.app = function app() {
   this.template('src/config.js', 'src/config.js');
 
   this.copy('Gruntfile.js', 'Gruntfile.js');
+  this.copy('gitignore', '.gitignore');
   this.template('_package.json', 'package.json');
   //this.template('_bower.json', 'bower.json');
 };
